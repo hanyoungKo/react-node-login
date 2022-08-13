@@ -1,15 +1,22 @@
-import React, {useEffect} from 'react'
-import axios from 'axios';
+import React from 'react'
+import {logoutUser } from '../../../_actions/user_action'
+import {Link} from 'react-router-dom'
+
+
 function LandingPage() {
-  
- useEffect(()=>{
-    axios.get('/api/hello')
-    .then(res =>{console.log(res.data)})
-  },[])
+
+  const clickLogout =()=>{
+    logoutUser()
+  }
+
   
     return (
-    <div>LandingPage</div>
+      <div className='LandingPage'>
+       <Link to="/login">로그인</Link>
+        <button onClick={clickLogout}>로그아웃</button>
+
+      </div>
   )
 }
 
-export default LandingPage
+export default LandingPage;
