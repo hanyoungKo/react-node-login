@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import { registerUser } from '../../../_actions/user_action';
+import { registerUser } from '../../../_actions/user_action'
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 
 import './RegisterPage.css';
 function RegisterPage() {
@@ -10,7 +10,8 @@ function RegisterPage() {
   const [name,setName] = useState(""); 
   const [password,setPassword] = useState("");
   const [confirmPassword,setConfirmPassword] = useState("");
-
+  
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const changeEmail=(e)=>{
@@ -36,9 +37,10 @@ function RegisterPage() {
     let body={
       email,name,password
     }
-    registerUser(body)
+    dispatch(registerUser(body))
     .then((res)=>{
-      if(res.RegisterSuccess){
+      console.log(res)
+      if(res.payload.success){
         navigate("/login");
       }else{
         alert("회원가입에 실패했습니다.")

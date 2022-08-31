@@ -1,5 +1,5 @@
 import axios from "axios";
-import {LOGIN_USER, REGISTER_USER, AUTH_USER} from '../_actions/types' 
+import {LOGIN_USER, REGISTER_USER, AUTH_USER} from '../_actions/types' ;
 
 
 export const loginUser= (dataTosubmit)=>{
@@ -26,7 +26,7 @@ export const logoutUser = ()=>{
       if(res.data.success){
          alert("로그아웃 되셨습니다.");
       }else{
-         alert("잘못된 접근 입니다.")
+         alert("잘못된 접근 입니다.");
       }
 
    })
